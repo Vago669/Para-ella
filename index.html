@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B1E38">
+<!-- ★ EDITA AQUÍ EL TÍTULO DE LA PESTAÑA DEL NAVEGADOR ★ -->
+<title>21 de Septiembre · Flores Amarillas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="intro bloqueado">
+
+<!-- ═════════ Definiciones SVG compartidas (degradados de las flores y estrellas). No hace falta tocarlas ═════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gTallo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f7a4a"/><stop offset="1" stop-color="#173f2d"/></linearGradient>
+    <linearGradient id="gHoja" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58a866"/><stop offset=".55" stop-color="#2a6b45"/><stop offset="1" stop-color="#173f2d"/></linearGradient>
+    <linearGradient id="gHoja2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b9a5c"/><stop offset=".5" stop-color="#25603f"/><stop offset="1" stop-color="#12362a"/></linearGradient>
+    <linearGradient id="gPetaloO" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#B87408"/><stop offset=".6" stop-color="#F3B61F"/><stop offset="1" stop-color="#FFD000"/></linearGradient>
+    <linearGradient id="gPetaloC" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F3B61F"/><stop offset=".65" stop-color="#FFD000"/><stop offset="1" stop-color="#FFF08A"/></linearGradient>
+    <radialGradient id="gDisco" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#8a5a20"/><stop offset=".55" stop-color="#4a2a0e"/><stop offset="1" stop-color="#22110a"/></radialGradient>
+    <linearGradient id="gTulipa" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E8890C"/><stop offset=".5" stop-color="#F3B61F"/><stop offset="1" stop-color="#FFE45C"/></linearGradient>
+    <linearGradient id="gTulipb" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C9700F"/><stop offset=".55" stop-color="#E5A016"/><stop offset="1" stop-color="#FFD000"/></linearGradient>
+    <radialGradient id="gRosa" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#FFF08A"/><stop offset=".45" stop-color="#FFD000"/><stop offset=".8" stop-color="#F3B61F"/><stop offset="1" stop-color="#B87408"/></radialGradient>
+    <linearGradient id="gIrisA" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2c3a94"/><stop offset=".55" stop-color="#4a5fd0"/><stop offset="1" stop-color="#a5b4ff"/></linearGradient>
+    <linearGradient id="gIrisB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f95f0"/><stop offset=".5" stop-color="#3d52c4"/><stop offset="1" stop-color="#1c2a7a"/></linearGradient>
+    <radialGradient id="gEstHalo"><stop offset="0" stop-color="#FFD000" stop-opacity=".6"/><stop offset=".45" stop-color="#F3B61F" stop-opacity=".2"/><stop offset="1" stop-color="#F3B61F" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gEstNucleo"><stop offset="0" stop-color="#fffbe0"/><stop offset=".5" stop-color="#FFD000"/><stop offset="1" stop-color="#F3B61F"/></radialGradient>
+    <linearGradient id="gLuna" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6b8"/><stop offset=".55" stop-color="#FFD000"/><stop offset="1" stop-color="#F3B61F"/></linearGradient>
+    <radialGradient id="gSHalo"><stop offset="0" stop-color="#FFD000" stop-opacity=".85"/><stop offset=".5" stop-color="#F3B61F" stop-opacity=".22"/><stop offset="1" stop-color="#F3B61F" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gSCuerpo" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#3a5f96"/><stop offset=".55" stop-color="#14294a"/><stop offset="1" stop-color="#060f1f"/></radialGradient>
+    <radialGradient id="gCeraLuz" cx=".32" cy=".28" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></radialGradient>
+    <filter id="fCera" x="-12%" y="-12%" width="124%" height="124%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G"/></filter>
+
+    <!-- Sello de cera (se usa en la carta). El color lo cambias con --cera arriba en los colores -->
+    <symbol id="selloSym" viewBox="0 0 120 120">
+      <g filter="url(#fCera)">
+        <circle cx="60" cy="60" r="46" style="fill:var(--cera)"/>
+        <circle cx="60" cy="60" r="46" fill="url(#gCeraLuz)"/>
+      </g>
+      <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>
+      <circle cx="60" cy="60" r="32.5" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.2"/>
+      <g transform="translate(60 60)" fill="#F3B61F" stroke="#b87408" stroke-width=".6">
+        <ellipse cy="-16" rx="5" ry="10"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(30)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(60)"/>
+        <ellipse cy="-16" rx="5" ry="10" transform="rotate(90)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(120)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(150)"/>
+        <ellipse cy="-16" rx="5" ry="10" transform="rotate(180)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(210)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(240)"/>
+        <ellipse cy="-16" rx="5" ry="10" transform="rotate(270)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(300)"/><ellipse cy="-16" rx="5" ry="10" transform="rotate(330)"/>
+        <circle r="8.5" fill="#7a4a0e" stroke="#b87408"/>
+        <circle r="4.2" fill="none" stroke="#e0a83c" stroke-width="1.2" stroke-dasharray="1 2"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Fondos pintados al óleo (los dibuja el JavaScript) -->
+<canvas id="paintMeadow" class="paint" aria-hidden="true"></canvas>
+<canvas id="paintNight" class="paint" aria-hidden="true"></canvas>
+
+<!-- Sol que se convierte en luna al bajar -->
+<div class="orbe" aria-hidden="true">
+  <div class="sol"><div class="sol-rayos"></div><div class="sol-halo"></div><div class="sol-disco"></div></div>
+  <div class="luna">
+    <svg viewBox="0 0 120 120">
+      <defs><mask id="mLuna"><rect width="120" height="120" fill="#fff"/><circle cx="74" cy="50" r="27" fill="#000"/></mask></defs>
+      <g class="l-a1"><circle cx="60" cy="60" r="56" fill="none" stroke="#FFD000" stroke-width="1.6" stroke-dasharray="3 9 12 9" opacity=".7"/></g>
+      <g class="l-a2"><circle cx="60" cy="60" r="47" fill="none" stroke="#F3B61F" stroke-width="1.3" stroke-dasharray="14 7 2 7" opacity=".6"/></g>
+      <circle cx="58" cy="62" r="31" fill="url(#gLuna)" mask="url(#mLuna)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Destellos, espirales de luz y polvo dorado -->
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ★★★ EDITA AQUÍ TU MÚSICA ★★★
+     Cambia "musica.mp3" por el nombre de tu archivo (déjalo en la misma
+     carpeta que este index.html) o por un enlace directo a un .mp3.
+     ═══════════════════════════════════════════════════════════════ -->
+<audio id="musica" src="assets/audio/One.mp3" loop preload="auto"></audio>
+
+<!-- Botón flotante para pausar / reanudar la música -->
+<button id="musicaBtn" class="pausada" aria-label="Pausar o reanudar la música" title="Música"><i></i><i></i><i></i><i></i></button>
+
+<!-- Indicación para deslizar -->
+<div id="deslizar" aria-hidden="true">desliza hacia abajo<b>⌄</b></div>
+
+<!-- ═════════════════════ 1 · PANTALLA DE BIENVENIDA ═════════════════════ -->
+<div id="intro">
+  <button id="semilla" aria-label="Toca la semilla para comenzar">
+    <svg viewBox="0 0 200 240" aria-hidden="true">
+      <circle class="s-halo" cx="100" cy="150" r="98" fill="url(#gSHalo)"/>
+      <g class="s-anillo1"><circle cx="100" cy="150" r="82" fill="none" stroke="#FFD000" stroke-width="1.4" stroke-dasharray="2 9" stroke-linecap="round" opacity=".7"/></g>
+      <g class="s-anillo2"><circle cx="100" cy="150" r="66" fill="none" stroke="#F3B61F" stroke-width="1.2" stroke-dasharray="10 6 2 6" opacity=".55"/></g>
+      <g class="s-orbita"><circle cx="100" cy="68" r="3.2" fill="#fff7c2"/><circle cx="182" cy="150" r="2.2" fill="#FFD000"/><circle cx="56" cy="222" r="2.6" fill="#fff7c2"/></g>
+      <g class="s-orbita2"><circle cx="100" cy="94" r="2" fill="#FFD000"/><circle cx="34" cy="150" r="2.8" fill="#fff7c2"/></g>
+      <g class="s-brote">
+        <path d="M100 126C97 106 104 88 100 68" fill="none" stroke="#0a1a30" stroke-width="5" stroke-linecap="round"/>
+        <path d="M98.4 124C95.4 106 102.4 88 98.4 68" fill="none" stroke="#FFD000" stroke-width=".9" opacity=".75"/>
+        <path d="M100 90C78 88 62 70 60 52C82 54 98 70 100 90Z" fill="#0a1a30" stroke="#FFD000" stroke-width="1.1"/>
+        <path d="M100 78C122 76 138 58 140 40C118 42 102 58 100 78Z" fill="#0a1a30" stroke="#FFD000" stroke-width="1.1"/>
+        <path d="M100 90C88 80 76 68 66 56" fill="none" stroke="#FFD000" stroke-width=".7" opacity=".5"/>
+        <path d="M100 78C112 68 124 56 134 44" fill="none" stroke="#FFD000" stroke-width=".7" opacity=".5"/>
+      </g>
+      <g class="s-cuerpo">
+        <path d="M100 124C74 124 62 154 70 182C78 210 122 210 130 182C138 154 126 124 100 124Z" fill="url(#gSCuerpo)" stroke="#FFD000" stroke-width="1.6"/>
+        <path d="M83 146C76 158 76 172 82 184" fill="none" stroke="#8fb0ea" stroke-width="2.2" opacity=".5" stroke-linecap="round"/>
+        <path d="M106 130C114 138 118 150 117 162" fill="none" stroke="#FFD000" stroke-width="1.2" opacity=".45" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+  <!-- ★ EDITA AQUÍ EL TEXTO DE LA PANTALLA DE BIENVENIDA ★ -->
+  <p class="intro-texto">Toca la semilla para dar vida a este 21 de septiembre...</p>
+  <p class="intro-sub">con música · sube un poquito el volumen</p>
+</div>
+<div id="destello" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ═════════════════════ 2 · EL CAMPO DE FLORES ═════════════════════ -->
+  <section id="campo" aria-label="Campo de flores">
+    <div class="campo-cab">
+      <!-- ★ EDITA AQUÍ EL TÍTULO PRINCIPAL ★ -->
+      <h1 class="titulo">21 de Septiembre</h1>
+      <!-- ★ EDITA AQUÍ EL SUBTÍTULO ★ -->
+      <p class="subtitulo">flores amarillas para ti</p>
+      <!-- ★ EDITA AQUÍ LA PISTA PARA TOCAR LAS FLORES ★ -->
+      <p class="pista">Toca las flores: cada una guarda algo para ti</p>
+    </div>
+
+    <!-- Las flores las genera el JavaScript en estas 3 capas (lejos, medio, cerca) -->
+    <div class="capa" id="capaLejos"></div>
+    <div class="capa" id="capaMedia"></div>
+    <div class="capa" id="capaCerca"></div>
+
+    <!-- Mariposas que pasean por el prado -->
+    <div class="mariposa" style="--ruta:ruta1;--dur:38s;--del:-4s" aria-hidden="true"><svg viewBox="0 0 36 30"><g class="ala-i" fill="#FFD000" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C10 2 1 3 2 11C3 18 12 19 18 15Z"/><path d="M18 16C10 19 6 28 11 28C16 28 18 21 18 16Z"/></g><g class="ala-d" fill="#FFD000" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C26 2 35 3 34 11C33 18 24 19 18 15Z"/><path d="M18 16C26 19 30 28 25 28C20 28 18 21 18 16Z"/></g><rect x="17" y="8" width="2" height="16" rx="1" fill="#2b1a0a"/></svg></div>
+    <div class="mariposa" style="--ruta:ruta2;--dur:44s;--del:-14s" aria-hidden="true"><svg viewBox="0 0 36 30"><g class="ala-i" fill="#8fa2ff" stroke="#1c2a7a" stroke-width=".8"><path d="M18 15C10 2 1 3 2 11C3 18 12 19 18 15Z"/><path d="M18 16C10 19 6 28 11 28C16 28 18 21 18 16Z"/></g><g class="ala-d" fill="#8fa2ff" stroke="#1c2a7a" stroke-width=".8"><path d="M18 15C26 2 35 3 34 11C33 18 24 19 18 15Z"/><path d="M18 16C26 19 30 28 25 28C20 28 18 21 18 16Z"/></g><rect x="17" y="8" width="2" height="16" rx="1" fill="#0b1230"/></svg></div>
+    <div class="mariposa" style="--ruta:ruta3;--dur:52s;--del:-26s" aria-hidden="true"><svg viewBox="0 0 36 30"><g class="ala-i" fill="#F3B61F" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C10 2 1 3 2 11C3 18 12 19 18 15Z"/><path d="M18 16C10 19 6 28 11 28C16 28 18 21 18 16Z"/></g><g class="ala-d" fill="#F3B61F" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C26 2 35 3 34 11C33 18 24 19 18 15Z"/><path d="M18 16C26 19 30 28 25 28C20 28 18 21 18 16Z"/></g><rect x="17" y="8" width="2" height="16" rx="1" fill="#2b1a0a"/></svg></div>
+    <div class="mariposa" style="--ruta:ruta2;--dur:36s;--del:-30s" aria-hidden="true"><svg viewBox="0 0 36 30"><g class="ala-i" fill="#FFE873" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C10 2 1 3 2 11C3 18 12 19 18 15Z"/><path d="M18 16C10 19 6 28 11 28C16 28 18 21 18 16Z"/></g><g class="ala-d" fill="#FFE873" stroke="#7a4a08" stroke-width=".8"><path d="M18 15C26 2 35 3 34 11C33 18 24 19 18 15Z"/><path d="M18 16C26 19 30 28 25 28C20 28 18 21 18 16Z"/></g><rect x="17" y="8" width="2" height="16" rx="1" fill="#2b1a0a"/></svg></div>
+  </section>
+
+  <!-- ═════════════════════ 3 · TRANSICIÓN AL CIELO NOCTURNO ═════════════════════ -->
+  <section id="transicion" aria-label="Cae la noche">
+    <!-- ★ EDITA AQUÍ LA FRASE DE LA TRANSICIÓN ★ -->
+    <p class="transicion-texto" id="transTexto">Y cuando cae la noche, el campo se llena de estrellas...</p>
+  </section>
+
+  <!-- ═════════════════════ 4 · GALERÍA NOCTURNA DE ESTRELLAS ═════════════════════ -->
+  <section id="galeria" aria-label="Galería de estrellas">
+    <div class="galeria-cab">
+      <!-- ★ EDITA AQUÍ EL TÍTULO DE LA GALERÍA ★ -->
+      <h2>La noche estrellada</h2>
+      <!-- ★ EDITA AQUÍ LA INDICACIÓN DE LA GALERÍA ★ -->
+      <p>Toca cada estrella y únelas con luz</p>
+    </div>
+    <!-- Las estrellas se generan desde la lista ESTRELLAS del JavaScript -->
+    <div class="cielo" id="cielo"><svg id="constel" aria-hidden="true"></svg></div>
+    <!-- ★ EDITA AQUÍ LA FRASE QUE APARECE CUANDO ENCIENDEN TODAS LAS ESTRELLAS ★ -->
+    <p class="galeria-fin" id="galeriaFin">Todas las estrellas están encendidas. Solo falta tu carta ↓</p>
+  </section>
+
+  <!-- ═════════════════════ 5 · CARTA FINAL ═════════════════════ -->
+  <section id="carta" aria-label="Carta final">
+    <!-- ★ EDITA AQUÍ EL TÍTULO ENCIMA DE LA CARTA ★ -->
+    <h2 class="carta-cab">Una carta, una simple carta del fondo del baul</h2>
+
+    <div class="pergamino" id="pergamino" tabindex="0" role="button" aria-label="Abrir la carta">
+      <div class="rollo rollo-sup"></div>
+      <div class="hoja"><div class="hoja-int"><div class="papel-carta">
+        <div class="carta-texto" id="cartaTexto" aria-live="polite"></div>
+        <button class="sello-final" id="selloFinal" aria-label="Sello de cera"><svg viewBox="0 0 120 120"><use href="#selloSym" width="120" height="120"/></svg></button>
+        <!-- ★ EDITA AQUÍ LA INDICACIÓN FINAL (aparece debajo del sello) ★ -->
+        <p class="indicacion" id="indicacion">Toca el sello para cerrar esta carta ✦</p>
+      </div></div></div>
+      <div class="rollo rollo-inf"></div>
+      <div class="sello-cerrado" aria-hidden="true"><svg viewBox="0 0 120 120"><use href="#selloSym" width="120" height="120"/></svg></div>
+    </div>
+    <!-- ★ EDITA AQUÍ LA PISTA PARA ABRIR EL PERGAMINO ★ -->
+    <p class="carta-pista" id="cartaPista">Toca el pergamino para abrir la carta</p>
+
+    <!-- ★ EDITA AQUÍ EL MENSAJE FINAL (aparece al tocar el sello) ★ -->
+    <div id="fin">
+      <h2>Feliz 21 de septiembre 🌻</h2>
+      <p>Que lo hayas pasado bien</p>
+      <button id="reiniciar">volver al inicio</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ★★★ EDITA AQUÍ TU CARTA ★★★
+         Escribe tu mensaje dentro de estos párrafos <p>. El texto se irá
+         "escribiendo" solo, letra por letra.
+         · Para agregar un párrafo nuevo, copia una línea <p>...</p>.
+         · Para un salto de línea dentro del párrafo, escribe <br>.
+         · No borres las clases (saludo, cierre, firma-carta): dan el estilo.
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="cartaFuente" hidden>
+      <!-- ★ EDITA AQUÍ A QUIÉN VA DIRIGIDA -->
+      <p class="saludo">Querida [Nombre],</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 1) -->
+      <p>No sé muy bien por dónde comenzar, porque hay sentimientos que, cuando se intenta ponerlos en palabras, terminan pareciendo mucho más pequeños de lo que son.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 2) -->
+      <p>Quizá por eso prefiero no buscar una palabra que los defina.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 3) -->
+      <p>Sólo quería decirte que me alegra saber que la vida ha sido generosa contigo; que has sabido rodearte de personas que te valoran, te respetan y reconocen aquello que hay en ti. Ojalá continúen acompañándote quienes sepan cuidar tu amistad con la misma sinceridad con la que tú la entregas.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 4) -->
+      <p>Deseo que tus días estén llenos de momentos que merezcan ser recordados. Y cuando no lo estén, cuando alguna tormenta llegue sin pedir permiso, espero que jamás olvides la fortaleza que tienes para atravesarla. Eres inteligente, perseverante y mucho más capaz de lo que quizá algunas veces puedas concederte.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 5) -->
+      <p>Vive esta etapa de tu vida. Estudia, descubre, ríe, equivócate y aprende; disfruta tu juventud, pero cuídate lo suficiente para que un día puedas mirar hacia atrás con cariño y no con arrepentimiento.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 6) -->
+      <p>También espero que, cuando alguien llegue a compartir tus días de una manera más cercana, sea alguien digno de ellos. No alguien que admire únicamente tu luz, sino alguien capaz de permanecer cuando aparezcan tus sombras. Que conozca tus demonios sin pedirte que los escondas; que tenga la paciencia de sentarse junto a ellos y hacerles un poco de lugar. No necesitas un héroe que pretenda salvarte de todo: necesitas a alguien que, si alguna vez el mundo se vuelve cruel contigo, tenga el valor de quedarse a tu lado. Alguien dispuesto a esforzarse, a mejorar, a intentarlo de nuevo cuando no pueda darte cuanto mereces.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 7) -->
+      <p>Y si alguna vez la vida te hace sentir sola, recuerda que la distancia no siempre significa ausencia. Habrá, en algún lugar, alguien deseándote bien, confiando en ti y esperando sinceramente que cada nuevo día te trate con un poco más de gentileza.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 8) -->
+      <p>Me habría gustado, quizá, caminar más cerca de ti. Tal vez fue cobardía, tal vez prudencia, o simplemente comprender que existen lugares que uno desea ocupar y que, sin embargo, no le corresponden. He aprendido que querer el bienestar de alguien también significa respetar aquello que nunca fue nuestro.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 9) -->
+      <p>No quiero que estas palabras te hagan sentir obligada a responder nada. No son una petición ni una deuda. Son, simplemente, pequeñas cosas que alguna vez pensé de ti y que, por una vez, decidí no dejar en silencio.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 10) -->
+      <p>No sé qué lugar ocuparé en tus recuerdos.</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 10) -->
+      <p>Pero sí sé algo:</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 10) -->
+      <p>Cuando llegue el anochecer y el mundo guarde silencio, habrá una vieja costumbre que conservaré por ti:</p>
+      <!-- ★ EDITA AQUÍ TU CARTA (párrafo 10) -->
+      <p>Pedir, en silencio, que la vida sea buena contigo.</p>
+      <!-- ★ EDITA AQUÍ LA DESPEDIDA -->
+      <p class="cierre">Un ermitaño,</p>
+      <!-- ★ EDITA AQUÍ TU FIRMA DE LA CARTA -->
+      <p class="firma-carta">Vago</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═════════════════════ TARJETA FLOTANTE (flores y estrellas) ═════════════════════
+     Es una sola tarjeta que se rellena sola con los datos de la zona de edición.
+     De arriba abajo: GIF · (fecha y título, solo en las estrellas) · poema/recuerdo · firma. -->
+<div id="velo"></div>
+<article id="tarjeta" class="tarjeta" role="dialog" aria-label="Mensaje">
+  <button class="t-cerrar" aria-label="Cerrar">×</button>
+  <div class="t-gif"></div>
+  <div class="t-fecha"></div>
+  <h3 class="t-titulo"></h3>
+  <p class="t-texto"></p>
+  <div class="t-firma"></div>
+</article>
+
+<!-- Textura de lienzo por encima de todo -->
+<div id="lienzo" aria-hidden="true"></div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
